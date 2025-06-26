@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>Anar Restaurant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Anar Restaurant</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">کور</a></li>
+        <li><a href="menu.html">مینیو</a></li>
+        <li><a href="#order">فرمایش</a></li>
+        <li><a href="#contact">اړیکه</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>ښه راغلاست!</h2>
+    <p>په Anar Restaurant کې موږ تازه، خوندور او افغاني خواړه وړاندې کوو.</p>
+  </section>
+
+  <section id="order">
+    <h2>خپل فرمایش راولیږئ</h2>
+    <form action="https://wa.me/93782733773" target="_blank" onsubmit="return sendWhatsAppOrder()">
+      <input type="text" id="name" placeholder="نوم" required>
+      <input type="text" id="phone" placeholder="تلفون شمېره" required>
+      <textarea id="address" placeholder="پته" required></textarea>
+      <textarea id="food" placeholder="د خوړو لیست (کباب، همبرګر...)" required></textarea>
+      <button type="submit">واستاوه WhatsApp ته</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>اړیکه</h2>
+    <p>📞 0700 797 400</p>
+    <p>📍 کندهار، افغانستان</p>
+  </section>
+
+  <script>
+    function sendWhatsAppOrder() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const address = document.getElementById('address').value;
+      const food = document.getElementById('food').value;
+      const msg = `سلام، زما فرمایش:\nنوم: ${name}\nشمېره: ${phone}\nپته: ${address}\nخواړه: ${food}`;
+      const url = `https://wa.me/93782733773?text=${encodeURIComponent(msg)}`;
+      window.open(url);
+      return false;
+    }
+  </script>
+</body>
+</html>
